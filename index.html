@@ -77,26 +77,49 @@
       gap: .75rem;
     }
     .theme-switch {
+      -webkit-appearance: none;
+      appearance: none;
       display: inline-grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 24px);
+      grid-template-rows: 24px;
+      align-content: center;
+      justify-content: center;
+      flex: 0 0 auto;
       width: 58px;
-      height: 30px;
+      height: 32px;
+      margin: 0;
       padding: 3px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--surface);
+      color: var(--muted);
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
       cursor: pointer;
     }
     .theme-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
     .theme-switch span {
       display: grid;
       place-items: center;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       color: var(--muted);
       font-size: .72rem;
       line-height: 1;
       transition: background-color .25s ease, color .25s ease;
     }
+    .theme-switch svg {
+      display: block;
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    @media (prefers-reduced-motion: reduce) { .theme-switch span { transition: none; } }
     .theme-switch [data-theme-icon="dark"] { background: var(--text); color: var(--bg); }
     html[data-theme="light"] .theme-switch [data-theme-icon="dark"] { background: transparent; color: var(--muted); }
     html[data-theme="light"] .theme-switch [data-theme-icon="light"] { background: var(--text); color: var(--bg); }
@@ -268,8 +291,12 @@
         <a href="#contact">Contact</a>
       </nav>
       <button class="theme-switch" type="button" aria-label="Switch to light theme" aria-pressed="false">
-        <span data-theme-icon="dark" aria-hidden="true">🌙</span>
-        <span data-theme-icon="light" aria-hidden="true">☀️</span>
+        <span data-theme-icon="dark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M20.9 13.3A9 9 0 0 1 10.7 3.1 9 9 0 1 0 20.9 13.3Z"/></svg>
+        </span>
+        <span data-theme-icon="light" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </span>
       </button>
     </div>
   </header>
@@ -314,7 +341,7 @@
           <dd>Implemented commission-sharing workflows that connect licensed professionals with qualified buyers.</dd>
         </div>
       </dl>
-      <div class="links"><a class="button" href="https://onepropertee.com/">Visit OnePropertee ↗</a></div>
+      <div class="links"><a class="button" href="https://onepropertee.com/" target="_blank">Visit OnePropertee ↗</a></div>
     </section>
 
     <section class="section wrap" id="experience" aria-labelledby="experience-title">
