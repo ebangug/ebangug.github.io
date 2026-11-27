@@ -1,468 +1,430 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <meta name="description"
-    content="Frederick Stephen Bangug, senior software engineer and OnePropertee co-founder. Selected work in marketplaces, payments, and production web applications.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0d10">
+  <meta name="description" content="Frederick Stephen Bangug, senior software engineer and OnePropertee co-founder. Selected work in marketplaces, payments, and production web applications.">
   <title>Frederick Stephen Bangug · Software Engineer</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <style>
     :root {
-      --paper: #f7f6f2;
-      --ink: #202222;
-      --muted: #53534f;
-      --accent: #a33321;
-      --line: #d1cdc4;
-      --dark: #242826;
-      --display: Georgia, "Times New Roman", serif;
-      --mono: ui-monospace, SFMono-Regular, Consolas, monospace
+      --bg: #0b0d10;
+      --surface: #11151a;
+      --surface-2: #171b21;
+      --text: #f4f6f8;
+      --muted: #9da6b2;
+      --accent: #70e1c1;
+      --accent-2: #62a9ff;
+      --line: rgba(255,255,255,.09);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font: 1rem/1.65 system-ui, sans-serif
+      background:
+        radial-gradient(circle at 82% 8%, rgba(98,169,255,.07), transparent 24rem),
+        radial-gradient(circle at 12% 28%, rgba(112,225,193,.045), transparent 22rem),
+        var(--bg);
+      color: var(--text);
+      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; }
+    a:hover { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    h1, h2, h3, p, dl, dd { margin: 0; }
+    h1, h2 { letter-spacing: -.055em; line-height: 1.02; }
+    h1 { max-width: 11ch; font-size: clamp(3.25rem, 8.2vw, 7.5rem); }
+    h2 { font-size: clamp(2.25rem, 5vw, 4.25rem); }
+    h3 { line-height: 1.2; }
 
-    a {
-      color: inherit;
-      text-underline-offset: .26em
-    }
-
-    a:hover {
-      color: var(--accent)
-    }
-
-    a:focus-visible {
-      outline: 2px solid #ba4a36;
-      outline-offset: 5px
-    }
-
-    h1,
-    h2,
-    h3,
-    p,
-    dl,
-    dd {
-      margin: 0
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.07
-    }
-
-    h1,
-    h2 {
-      font-family: var(--display);
-      font-weight: 400;
-      letter-spacing: -.055em
-    }
-
-    h1 {
-      font-size: clamp(3.25rem, 8.5vw, 7.9rem)
-    }
-
-    h1 span {
-      display: block;
-      color: var(--accent)
-    }
-
-    h2 {
-      font-size: clamp(2.65rem, 5.3vw, 4.9rem)
-    }
-
-    h3 {
-      font-size: 1.33rem
-    }
-
-    .wrap {
-      width: min(100% - 4rem, 72rem);
-      margin-inline: auto
-    }
-
-    .mono,
-    time {
-      font: .875rem/1.5 var(--mono);
-      letter-spacing: .035em
-    }
+    .wrap { width: min(calc(100% - 64px), 1180px); margin-inline: auto; }
+    .mono { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    .eyebrow { color: var(--accent); margin-bottom: 1.1rem; }
+    .skip { position: fixed; left: 1rem; top: -5rem; z-index: 20; background: var(--text); color: var(--bg); padding: .6rem .9rem; }
+    .skip:focus { top: 1rem; }
 
     .masthead {
+      height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding-block: 1.35rem;
-      border-bottom: 1px solid var(--line)
+      border-bottom: 1px solid var(--line);
     }
-
+    .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
     .mark {
-      display: inline-grid;
+      display: grid;
       place-items: center;
-      width: 2.8rem;
-      height: 2.8rem;
-      background: var(--ink);
-      color: white;
-      font: .875rem var(--mono);
-      text-decoration: none
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(112,225,193,.45);
+      border-radius: 50%;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: .78rem;
+      font-weight: 800;
+      box-shadow: inset 0 0 18px rgba(112,225,193,.06);
     }
-
-    .mark:hover {
-      background: var(--accent);
-      color: white
-    }
-
-    nav,
-    .links {
+    .brand-name { font-size: .9rem; font-weight: 700; letter-spacing: -.01em; }
+    .header-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: .6rem 1.6rem
+      align-items: center;
+      gap: .75rem;
     }
-
-    nav a {
-      text-decoration: none;
-      font-size: .9rem;
-      font-weight: 600
+    .theme-switch {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      width: 58px;
+      height: 30px;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      cursor: pointer;
     }
+    .theme-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .theme-switch span {
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--muted);
+      font-size: .72rem;
+      line-height: 1;
+      transition: background-color .25s ease, color .25s ease;
+    }
+    .theme-switch [data-theme-icon="dark"] { background: var(--text); color: var(--bg); }
+    html[data-theme="light"] .theme-switch [data-theme-icon="dark"] { background: transparent; color: var(--muted); }
+    html[data-theme="light"] .theme-switch [data-theme-icon="light"] { background: var(--text); color: var(--bg); }
 
     .hero {
+      min-height: 620px;
       display: grid;
-      grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.6fr) minmax(280px, .72fr);
+      gap: 3rem;
       align-items: end;
-      padding-block: clamp(3.5rem, 9vw, 8.2rem) clamp(3.5rem, 7vw, 6rem)
+      padding-block: 94px 78px;
     }
-
-    .kicker {
-      margin-bottom: 1.15rem;
-      color: var(--accent)
-    }
-
-    .intro {
-      padding-block: 1.25rem .4rem;
-      border-top: 2px solid var(--ink)
-    }
-
-    .intro strong {
-      font-size: 1.15rem
-    }
-
-    .intro p {
-      margin: .7rem 0 1.3rem;
-      color: var(--muted)
-    }
-
-    .links a {
-      font-weight: 650
-    }
-
-    .feature {
-      background: var(--dark);
-      color: #f7f6f2;
-      padding: clamp(1.5rem, 5vw, 4.25rem)
-    }
-
-    .feature-head {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 1.5rem 3rem;
-      align-items: end;
-      margin-bottom: 2.5rem
-    }
-
-    .feature .kicker {
-      color: #ffab97
-    }
-
-    .feature h2 {
-      overflow-wrap: anywhere
-    }
-
-    .feature p {
-      color: #e1e0d9
-    }
-
-    .feature a:hover {
-      color: #ffab97
-    }
-
-    .role {
-      margin-top: .85rem
-    }
-
-    .feature dl {
-      border-block: 1px solid #6a6e68
-    }
-
-    .feature dl div {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 1rem;
-      padding-block: 1.1rem
-    }
-
-    .feature dl div+div {
-      border-top: 1px solid #555a54
-    }
-
-    .feature dt {
-      font-weight: 650
-    }
-
-    .feature dd {
-      color: #e1e0d9
-    }
-
-    .feature .links {
-      margin-top: 1.4rem
-    }
-
-    .section {
-      display: grid;
-      grid-template-columns: 1fr 2.05fr;
-      gap: 1.5rem 3rem;
-      padding-block: clamp(2.75rem, 6vw, 5.5rem);
-      border-bottom: 1px solid var(--line)
-    }
-
-    .job,
-    .skill {
-      border-top: 1px solid var(--line);
-      padding-block: 1.15rem
-    }
-
-    .job:first-child,
-    .skill:first-child {
-      border-color: var(--ink)
-    }
-
-    .job header {
+    .hero h1 span { display: block; color: var(--accent); }
+    .hero-name {
       display: flex;
-      align-items: baseline;
+      align-items: center;
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+    }
+    .hero-aside {
+      border-left: 1px solid var(--line);
+      padding: 12px 0 12px 2rem;
+    }
+    .profile-photo {
+      width: clamp(112px, 12vw, 160px);
+      height: clamp(112px, 12vw, 160px);
+      flex: 0 0 clamp(112px, 12vw, 160px);
+      object-fit: cover;
+      object-position: center;
+      border: 1px solid rgba(112,225,193,.45);
+      border-radius: 50%;
+      box-shadow: 0 12px 40px rgba(0,0,0,.28), inset 0 0 0 4px rgba(11,13,16,.8);
+    }
+    .availability { display: inline-flex; align-items: center; gap: .55rem; color: var(--muted); margin-bottom: 1.15rem; }
+    .availability::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    .hero-aside p { color: #c0c7cf; font-size: 1.05rem; }
+    .links { display: flex; flex-wrap: wrap; gap: .8rem 1.35rem; margin-top: 1.6rem; }
+    .links a { text-decoration-thickness: 1px; text-underline-offset: .28em; font-size: .9rem; font-weight: 700; }
+    .links .button { border: 1px solid var(--line); border-radius: 999px; padding: .72rem 1rem; text-decoration: none; }
+    .links .button:hover { border-color: rgba(112,225,193,.55); background: rgba(112,225,193,.06); }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(112,225,193,.065), transparent 36%), var(--surface);
+      padding: clamp(32px, 5vw, 64px);
+    }
+    .project::after { content: ""; position: absolute; width: 260px; height: 260px; right: -130px; top: -130px; border: 1px solid rgba(112,225,193,.12); border-radius: 50%; }
+    .project-head { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2.5rem; align-items: end; margin-bottom: 3rem; }
+    .project h2 { font-size: clamp(2.8rem, 6vw, 5.6rem); }
+    .project-summary { color: var(--muted); max-width: 33rem; }
+    .project dl { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--line); }
+    .project dl div { min-height: 170px; padding: 1.5rem 1.5rem 1.5rem 0; }
+    .project dl div + div { border-left: 1px solid var(--line); padding-left: 1.5rem; }
+    .project dt { color: var(--accent); font-size: .9rem; font-weight: 800; margin-bottom: .75rem; }
+    .project dd { color: #bdc5ce; font-size: .92rem; }
+
+    .section { display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; padding-block: 96px; border-bottom: 1px solid var(--line); }
+    .section-heading { position: sticky; top: 2rem; align-self: start; }
+    .section-heading h2 { font-size: clamp(2.2rem, 4vw, 3.5rem); }
+
+    .timeline { border-top: 1px solid var(--line); }
+    .job { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.5rem; border-bottom: 1px solid var(--line); padding: 1.8rem 0; }
+    .job h3 { font-size: 1.15rem; }
+    .job-role { color: var(--accent); margin-top: .25rem; font-size: .9rem; }
+    .job time { color: var(--muted); font-family: var(--mono); font-size: .78rem; text-align: right; }
+    .job-description { grid-column: 1 / -1; color: var(--muted); max-width: 42rem; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .skill-card {
+      min-height: 145px;
+      display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      gap: .4rem 1.1rem;
-      flex-wrap: wrap
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.018);
+      padding: 1.25rem;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .skill-card:hover { transform: translateY(-4px); border-color: rgba(112,225,193,.36); background: rgba(112,225,193,.035); }
+    .skill-card i { color: var(--text); font-size: 2.1rem; }
+    .skill-card span { color: #c7ced6; font-size: .82rem; font-weight: 700; }
+
+    .education { display: grid; gap: .35rem; }
+    .education h3 { font-size: 1.25rem; }
+    .education p { color: var(--muted); }
+
+    footer { min-height: 270px; display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; padding-block: 74px 48px; }
+    footer h2 { font-size: clamp(2.8rem, 6vw, 5.2rem); }
+    footer .links { margin: 0 0 .5rem; justify-content: flex-end; }
+
+    @media (max-width: 900px) {
+      .wrap { width: min(calc(100% - 40px), 1180px); }
+      .hero { grid-template-columns: 1fr; min-height: auto; align-items: start; }
+      .hero-aside { max-width: 560px; }
+      .project-head { grid-template-columns: 1fr; }
+      .project dl { grid-template-columns: 1fr; }
+      .project dl div { min-height: auto; padding: 1.25rem 0; }
+      .project dl div + div { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
+      .section { grid-template-columns: 1fr; gap: 2rem; }
+      .section-heading { position: static; }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); }
+      footer { align-items: flex-start; flex-direction: column; }
+      footer .links { justify-content: flex-start; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: calc(100% - 32px); }
+      .masthead { height: 72px; }
+      .brand-name { display: none; }
+      nav { gap: 1rem; }
+      nav a { font-size: .78rem; }
+      nav a:nth-child(2) { display: none; }
+      .hero { padding-block: 64px 52px; }
+      .hero-name { align-items: flex-start; flex-direction: column; }
+      .hero-aside { border-left: 0; border-top: 1px solid var(--line); padding: 1.25rem 0 0; }
+      .project { border-radius: 14px; }
+      .project-head { margin-bottom: 1.8rem; }
+      .section { padding-block: 64px; }
+      .job { grid-template-columns: 1fr auto; }
+      .job time { grid-column: 2; grid-row: 1; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .skill-card { min-height: 128px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .skill-card { transition: none; } }
+
+    html[data-theme="light"] {
+      --bg: #f3f5f7;
+      --surface: #ffffff;
+      --surface-2: #e9edf1;
+      --text: #161a1f;
+      --muted: #667080;
+      --accent: #087f67;
+      --accent-2: #2767b3;
+      --line: rgba(22,26,31,.12);
+      color-scheme: light;
     }
 
-    .job time,
-    .job .mono {
-      color: var(--muted)
+    html[data-theme="light"] body {
+      background:
+        radial-gradient(circle at 82% 8%, rgba(39,103,179,.09), transparent 24rem),
+        radial-gradient(circle at 12% 28%, rgba(8,127,103,.06), transparent 22rem),
+        var(--bg);
     }
 
-    .job .job-title {
-      color: var(--accent);
-      font-weight: 600;
-      margin: .35rem 0 .5rem
-    }
+    html[data-theme="light"] .hero-aside p,
+    html[data-theme="light"] .project-summary,
+    html[data-theme="light"] .project dd,
+    html[data-theme="light"] .job-description,
+    html[data-theme="light"] .education p,
+    html[data-theme="light"] .skill-card span { color: var(--muted); }
 
-    .skill {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: .3rem 1rem
-    }
-
-    .skill dt {
-      font-weight: 650
-    }
-
-    footer {
-      padding-block: 3rem
-    }
-
-    footer p {
-      margin: .8rem 0 1.1rem;
-      color: var(--muted)
-    }
-
-    .skip {
-      position: absolute;
-      left: 1rem;
-      top: -5rem;
-      background: var(--paper);
-      padding: .5rem
-    }
-
-    .skip:focus {
-      top: .5rem
-    }
-
-    @media(max-width:760px) {
-      .wrap {
-        width: calc(100% - 2rem)
-      }
-
-      .hero,
-      .feature-head,
-      .section {
-        grid-template-columns: 1fr
-      }
-
-      .hero {
-        gap: 1.65rem
-      }
-
-      .intro {
-        max-width: 36rem
-      }
-    }
-
-    @media(max-width:460px) {
-      nav {
-        gap: .4rem .9rem
-      }
-
-      .feature dl div,
-      .skill {
-        grid-template-columns: 1fr;
-        gap: .25rem
-      }
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      html {
-        scroll-behavior: auto
-      }
-    }
+    body, .project, .skill-card, .masthead, .hero-aside, .job, .timeline { transition: background-color .25s ease, color .25s ease, border-color .25s ease; }
   </style>
 </head>
-
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="masthead wrap" id="top">
-    <a class="mark" href="#top" aria-label="Frederick Stephen Bangug, home">FB</a>
-    <nav aria-label="Main navigation">
-      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a
-        href="#contact">Contact</a>
-    </nav>
+    <a class="brand" href="#top" aria-label="Frederick Stephen Bangug, home">
+      <span class="mark">FB</span>
+      <!-- <span class="brand-name">Frederick Stephen Bangug</span> -->
+    </a>
+    <div class="header-actions">
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-switch" type="button" aria-label="Switch to light theme" aria-pressed="false">
+        <span data-theme-icon="dark" aria-hidden="true">🌙</span>
+        <span data-theme-icon="light" aria-hidden="true">☀️</span>
+      </button>
+    </div>
   </header>
-  <main class="wrap" id="main">
-    <section class="hero" aria-labelledby="name">
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="name">
       <div>
-        <p class="mono kicker">Quezon City, Philippines</p>
-        <h1 id="name">Frederick Stephen <span>Bangug</span></h1>
+        <p class="mono eyebrow">Quezon City, Philippines</p>
+        <div class="hero-name">
+          <h1 id="name">Frederick Stephen <span>Bangug</span></h1>
+          <img class="profile-photo" src="photo.PNG" alt="Frederick Stephen Bangug">
+        </div>
       </div>
-      <div class="intro">
-        <strong>Senior Software Engineer · Full-stack Developer</strong>
-        <p>I’m a Senior Software Engineer with over 20 years of experience building and maintaining production web
-          applications. I specialize in frontend and backend development, API integrations, and system architecture
-          using PHP, Laravel, MeteorJS and ReactJS. My work spans online marketplaces, payment integration, in-platform
-          currencies, and subscription platforms, with a focus on performance and maintainable code.</p>
-        <div class="links"><a href="#work">View selected work</a><a href="https://github.com/ebangug">GitHub</a></div>
+      <div class="hero-aside">
+        <p class="availability mono">Summary</p>
+        <p>I’m a Senior Software Engineer with over 20 years of experience building and maintaining production web applications. I specialize in frontend and backend development, API integrations, and system architecture using PHP, Laravel, MeteorJS and ReactJS. My work spans online marketplaces, payment integration, in-platform currencies, and subscription platforms, with a focus on performance and maintainable code.</p>
+        <div class="links">
+          <a class="button" href="#work">View my work</a>
+        </div>
       </div>
     </section>
 
-    <section class="feature" id="work" aria-labelledby="featured-title">
-      <div class="feature-head">
+    <section class="project wrap" id="work" aria-labelledby="featured-title">
+      <div class="project-head">
         <div>
-          <p class="mono kicker">Selected work</p>
+          <p class="mono eyebrow">Recent work · 2018—present</p>
           <h2 id="featured-title">OnePropertee</h2>
-          <p class="role">Software Engineer &amp; Co-founder · 2018–present</p>
         </div>
-        <p>I co-founded a real estate platform that connects property buyers, sellers, and licensed real-estate
-          professionals. My work spans frontend and backend development, database design, and the systems that support
-          transactions and buyer referrals.</p>
+        <p class="project-summary">Co-founded a real estate marketplace connecting buyers, sellers, and licensed property professionals. I lead software design across the platform—from core product features to transactional systems and revenue infrastructure.</p>
       </div>
       <dl>
-
-        <div>
-          <dt>LeadCoins, Packages &amp; Subscriptions</dt>
-          <dd>Built a virtual credit system enabling real estate professionals to access buyer inquiries. Developed
-            LeadCoins packages, shopping cart and checkout workflows, and recurring subscriptions with automated credit
-            allocation.</dd>
-        </div>
         <div>
           <dt>Payment processing</dt>
-          <dd>Integrated Xendit and PayMongo to support platform transactions.</dd>
+          <dd>Integrated Dragonpay and PayMongo to support secure platform transactions and improve payment reliability.</dd>
+        </div>
+        <div>
+          <dt>LeadCoins &amp; subscriptions</dt>
+          <dd>Built a virtual credit system for buyer inquiries, recurring subscriptions, and automatic credit allocation.</dd>
         </div>
         <div>
           <dt>OnePartnership</dt>
-          <dd>Implemented a commission-sharing program that connects licensed real estate professionals with qualified
-            buyers.</dd>
+          <dd>Implemented commission-sharing workflows that connect licensed professionals with qualified buyers.</dd>
         </div>
       </dl>
-      <div class="links"><a href="https://onepropertee.com/">Visit OnePropertee</a></div>
+      <div class="links"><a class="button" href="https://onepropertee.com/">Visit OnePropertee ↗</a></div>
     </section>
 
-    <section class="section" id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title">Experience</h2>
-      <div>
+    <section class="section wrap" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <p class="mono eyebrow">Career</p>
+        <h2 id="experience-title">Experience</h2>
+      </div>
+      <div class="timeline">
         <article class="job">
-          <header>
-            <h3>Sulit.com.ph / OLX Philippines</h3><span class="mono">2011–2018</span>
-          </header>
-          <p class="job-title">Senior Software Engineer</p>
-          <p>Built and optimized mobile APIs and worked with Product and UI/UX to develop and maintain the Philippines’
-            leading online classifieds platform through its rebrand to OLX Philippines.</p>
+          <div>
+            <h3>OnePropertee</h3>
+            <p class="job-role">Software Engineer &amp; Co-founder</p>
+          </div>
+          <time datetime="2018">2018—present</time>
+          <p class="job-description">Own technical strategy and full-stack development for a real estate marketplace, including subscriptions, payments, buyer referrals, database architecture, and performance.</p>
         </article>
         <article class="job">
-          <header>
-            <h3>KFC Philippines</h3><span class="mono">2006–2011</span>
-          </header>
-          <p class="job-title">Lead Solutions Engineer</p>
-          <p>Led the team delivering internal ordering and back-of-house applications. Worked with the Chief Solutions
-            Architect on technical design and system improvements.</p>
+          <div>
+            <h3>Sulit.com.ph / OLX Philippines</h3>
+            <p class="job-role">Senior Software Engineer</p>
+          </div>
+          <time datetime="2011">2011—2018</time>
+          <p class="job-description">Built and optimized mobile APIs and collaborated with Product and UI/UX to maintain the Philippines’ leading online classifieds platform through its rebrand to OLX.</p>
         </article>
         <article class="job">
-          <header>
-            <h3>Department of Labor and Employment</h3><time datetime="2006">2006</time>
-          </header>
-          <p class="job-title">IT Staff</p>
-          <p>Developed features and operational reports for Phil-Jobs.net, a government portal that matches job seekers
-            with registered employers.</p>
+          <div>
+            <h3>KFC Philippines</h3>
+            <p class="job-role">Lead Solutions Engineer</p>
+          </div>
+          <time datetime="2006">2006—2011</time>
+          <p class="job-description">Led delivery of internal ordering and back-of-house applications, partnering with the Chief Solutions Architect on system design and improvements.</p>
+        </article>
+        <article class="job">
+          <div>
+            <h3>Department of Labor and Employment</h3>
+            <p class="job-role">IT Staff</p>
+          </div>
+          <time datetime="2006">2006</time>
+          <p class="job-description">Developed features and operational reports for Phil-Jobs.net, a government portal connecting job seekers with registered employers.</p>
         </article>
       </div>
     </section>
 
-    <section class="section" id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">Technical skills</h2>
-      <dl>
-        <div class="skill">
-          <dt>Languages &amp; frameworks</dt>
-          <dd>PHP, JavaScript, Laravel, MeteorJS, React</dd>
-        </div>
-        <div class="skill">
-          <dt>Data &amp; search</dt>
-          <dd>MySQL, MongoDB, Redis, Elasticsearch, Algolia</dd>
-        </div>
-        <div class="skill">
-          <dt>Cloud &amp; tooling</dt>
-          <dd>AWS EC2 and S3, DigitalOcean, Laravel Forge, Laravel Nightwatch, Git</dd>
-        </div>
-        <div class="skill">
-          <dt>Systems &amp; integrations</dt>
-          <dd>REST APIs, payments, recurring billing, database design, performance optimization</dd>
-        </div>
-      </dl>
+    <section class="section wrap" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <p class="mono eyebrow">Toolbox</p>
+        <h2 id="skills-title">Technical skills</h2>
+      </div>
+      <div class="skills-grid" aria-label="Technical technology icons">
+        <div class="skill-card"><i class="devicon-php-plain colored" aria-hidden="true"></i><span>PHP</span></div>
+        <div class="skill-card"><i class="devicon-laravel-original colored" aria-hidden="true"></i><span>Laravel</span></div>
+        <div class="skill-card"><i class="devicon-javascript-plain colored" aria-hidden="true"></i><span>JavaScript</span></div>
+        <div class="skill-card"><i class="devicon-react-original colored" aria-hidden="true"></i><span>React</span></div>
+        <div class="skill-card"><i class="devicon-meteor-plain colored" aria-hidden="true"></i><span>MeteorJS</span></div>
+        <div class="skill-card"><i class="devicon-mysql-original colored" aria-hidden="true"></i><span>MySQL</span></div>
+        <div class="skill-card"><i class="devicon-mongodb-plain colored" aria-hidden="true"></i><span>MongoDB</span></div>
+        <div class="skill-card"><i class="devicon-redis-plain colored" aria-hidden="true"></i><span>Redis</span></div>
+        <div class="skill-card"><i class="devicon-amazonwebservices-plain-wordmark colored" aria-hidden="true"></i><span>AWS</span></div>
+        <div class="skill-card"><i class="devicon-digitalocean-original colored" aria-hidden="true"></i><span>DigitalOcean</span></div>
+        <div class="skill-card"><i class="devicon-git-plain colored" aria-hidden="true"></i><span>Git</span></div>
+        <div class="skill-card"><i class="devicon-elasticsearch-plain colored" aria-hidden="true"></i><span>Elasticsearch</span></div>
+      </div>
     </section>
 
-    <section class="section" aria-labelledby="education-title">
-      <h2 id="education-title">Education</h2>
-      <div>
+    <section class="section wrap" aria-labelledby="education-title">
+      <div class="section-heading">
+        <p class="mono eyebrow">Background</p>
+        <h2 id="education-title">Education</h2>
+      </div>
+      <div class="education">
         <h3>BS in Information Technology</h3>
         <p>Saint Ferdinand College · Ilagan City, Isabela</p>
       </div>
     </section>
   </main>
-  <footer class="wrap" id="contact">
-    <h2>Contact</h2>
-    <p>Frederick Stephen Bangug</p>
-    <div class="links"><a href="mailto:ericbangug@gmail.com">ericbangug@gmail.com</a><a
-        href="https://github.com/ebangug">GitHub</a></div>
-  </footer>
-</body>
 
+  <footer class="wrap" id="contact">
+    <div>
+      <p class="mono eyebrow">Let’s build something solid</p>
+      <h2>Get in touch.</h2>
+    </div>
+    <div class="links">
+      <a class="button" href="mailto:ericbangug@gmail.com">ericbangug@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+      const root = document.documentElement;
+      const switchButton = document.querySelector(".theme-switch");
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+
+      const applyTheme = (theme) => {
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        const isLight = theme === "light";
+        switchButton.setAttribute("aria-pressed", String(isLight));
+        switchButton.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+        themeColor.setAttribute("content", isLight ? "#f3f5f7" : "#0b0d10");
+      };
+
+      applyTheme(savedTheme);
+
+      switchButton.addEventListener("click", () => {
+        const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
+        localStorage.setItem("portfolio-theme", nextTheme);
+        applyTheme(nextTheme);
+      });
+    })();
+  </script>
+</body>
 </html>
